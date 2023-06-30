@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+.subscribe-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.subscribe-title {
+    margin-bottom: 20px;
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+}
+
+.subscribe-content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.subscribe-left {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.subscribe-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 35px;
+}
+
+.plan-selection, .payment-info, .contact-info {
+    margin-bottom: 20px;
+}
+
+.subscription-info {
+    padding: 20px;
+    border: 1px solid black;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    background-color: white;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+}
+
+.subscription-info img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 20px;
+    border: 2px solid #000;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.subscription-info-title {
+    margin-bottom: 10px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+h2 {
+    margin-bottom: 10px;
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+}
+
+.payment-info form, .contact-info form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.payment-info input, .contact-info input {
+    flex: 0 0 calc(50% - 10px);
+    margin-bottom: 10px;
+}
+
+input, select {
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+}
+
+.subscribe-button-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+button {
+    padding: 10px 80px;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    background-color: #673AB7;
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+    border: 1px solid black;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: #5e31a8;
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.5);
+    transform: scale(1.05);
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 24px;
+}

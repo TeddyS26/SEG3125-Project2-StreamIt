@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #673AB7;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar a {
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+    text-decoration: none;
+    position: relative;
+}
+
+.navbar a.navbar-brand {
+    margin-right: 30px;
+}
+
+.nav-links {
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+}
+
+.nav-links a {
+    margin: 0 20px;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+
+.nav-links a:hover::after,
+.nav-links a.activeLink::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.auth-buttons {
+    display: flex;
+}
+
+.auth-buttons a {
+    padding: 5px 20px;
+    border-radius: 5px;
+    margin-left: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.login-button {
+    background-color: transparent;
+    border: 1px solid white;
+}
+
+.signup-button {
+    background-color: transparent;
+    border: 1px solid white;
+}
+
+.auth-buttons a:hover {
+    background-color: white;
+    color: #673AB7;
+}
