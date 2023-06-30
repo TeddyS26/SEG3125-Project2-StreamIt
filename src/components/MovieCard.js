@@ -1,12 +1,20 @@
 import React, { useState } from 'react';
 import './MovieCard.css';
 
-const MovieCard = ({ movie }) => {
+const MovieCard = ({ movie, onWatchlist, onAddToWatchlist, onRemoveFromWatchlist }) => {
     const [showModal, setShowModal] = useState(false);
 
     const handleCloseModal = (event) => {
         if (event.target === event.currentTarget) {
             setShowModal(false);
+        }
+    };
+
+    const handleWatchlistButton = () => {
+        if (onWatchlist) {
+            onRemoveFromWatchlist(movie);
+        } else {
+            onAddToWatchlist(movie);
         }
     };
 
@@ -16,7 +24,9 @@ const MovieCard = ({ movie }) => {
             {showModal && (
                 <div className="movie-modal-background" onClick={handleCloseModal}>
                     <div className="movie-modal">
-                        <button className="close-button" onClick={(event) => { event.stopPropagation(); handleCloseModal(event); }}>X</button>
+                        <button className="close-button" onClick={(event) => { event.stopPropagation(); handleCloseModal(event); }}>
+                            X
+                        </button>
                         <div className="modal-left">
                             <img className="modal-image" src={movie.image} alt={movie.title} />
                             <div className="details">
@@ -24,7 +34,7 @@ const MovieCard = ({ movie }) => {
                                 <p>{movie.rating}</p>
                                 <p>{movie.reviews} Stars</p>
                             </div>
-                            <div className='cast-description'>
+                            <div className="cast-description">
                                 <p>Cast: {movie.cast.join(', ')}</p>
                             </div>
                         </div>
@@ -33,6 +43,9 @@ const MovieCard = ({ movie }) => {
                             <p>{movie.description}</p>
                         </div>
                         <button className="play-button">Play</button>
+                        <button className="watchlist-button" onClick={handleWatchlistButton}>
+                            {onWatchlist ? 'Remove from Watchlist' : 'Add to Watchlist'}
+                        </button>
                     </div>
                 </div>
             )}

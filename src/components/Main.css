@@ -115,10 +115,6 @@
     color: white;
 }
 
-.movie-section h2 {
-    padding-left: 10px;
-}
-
 .genres {
     display: flex;
     gap: 20px;
@@ -131,6 +127,21 @@
 
 .genres input {
     margin-left: 10px;
+    align-self: center;
+}
+
+.watchlist-filter {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.watchlist-filter label {
+    font-size: 1.2em;
+    color: white;
+}
+
+.watchlist-filter input {
     align-self: center;
 }
 

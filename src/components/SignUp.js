@@ -32,7 +32,7 @@ function SignUp() {
       alert('Please fill in all fields');
       return;
     }
-    
+
     navigate('/subscribe');
   };
 
