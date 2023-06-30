@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Subscribe.css';
 import basic from './images/basic.jpg';
 import standard from './images/standard.jpg';
@@ -21,6 +22,8 @@ const Subscribe = () => {
         phoneNumber: '',
         address: ''
     });
+
+    const navigate = useNavigate();
 
     const handleInputChange = (event) => {
         setFormData({
@@ -62,7 +65,7 @@ const Subscribe = () => {
 
             setTimeout(() => {
                 setShowModal(false);
-                window.location.href = "/main";
+                navigate('/main');
             }, 2000);
         } else {
             alert('Please fill out all fields before subscribing.');
