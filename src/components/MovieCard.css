@@ -30,8 +30,8 @@
 
 .movie-modal {
     position: relative;
-    width: 60%;
-    height: 60%;
+    width: 80%;
+    height: 82%;
     max-height: 90vh;
     overflow-y: auto;
     background: linear-gradient(to right, #673AB7, #B295E5);
@@ -71,7 +71,7 @@
 }
 
 .cast-description {
-    padding-left: 20px;
+    padding: 10px 20px;
 }
 
 .movie-modal .modal-image {
@@ -98,8 +98,9 @@
     margin-bottom: 10px;
 }
 
-.movie-modal p {
+.movie-modal p, .cast-description p {
     margin-bottom: 10px;
+    white-space: pre-wrap;
 }
 
 .modal-right p {
