@@ -2,6 +2,7 @@
   "name": "streamit",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://teddys26.github.io/SEG3125-Project2-StreamIt/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
