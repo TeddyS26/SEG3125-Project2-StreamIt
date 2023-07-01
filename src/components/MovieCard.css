@@ -136,6 +136,52 @@
     width: 25%;
 }
 
+.reviews-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.hover-data {
+    position: absolute;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    padding: 8px;
+    z-index: 1;
+    color: black;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    transition-delay: 0.5s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    white-space: nowrap;
+    pointer-events: none;
+    visibility: hidden;
+    min-width: 120px;
+    top: 30px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+}
+
+.hover-data:before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #f9f9f9;
+}
+
+.hover-data .label {
+    font-weight: bold;
+}
+
+.reviews-wrapper:hover .hover-data {
+    opacity: 1;
+    visibility: visible;
+}
+
 @media only screen and (max-width: 600px) {
     .movie-modal .modal-image {
         height: 250px;

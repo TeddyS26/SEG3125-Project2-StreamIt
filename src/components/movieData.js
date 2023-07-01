@@ -30,6 +30,9 @@ const movieData = [
         reviews: '9.3/10',
         cast: ['Emilia Clarke', 'Peter Dinklage', 'Kit Harington'],
         genre: ['Action', 'Adventure', 'Drama'],
+        ratio: '9:2',
+        watched: '40 million',
+        rewatched: '2 million',
         image: movie1,
     },
     {
@@ -41,6 +44,9 @@ const movieData = [
         reviews: '7.8/10',
         cast: ['Sam Worthington', 'Zoe Saldana', 'Sigourney Weaver'],
         genre: ['Action', 'Adventure', 'Fantasy'],
+        ratio: '7:3',
+        watched: '800 million',
+        rewatched: '100 million',
         image: movie2,
     },
     {
@@ -52,6 +58,9 @@ const movieData = [
         reviews: '8.4/10',
         cast: ['Robert Downey Jr.', 'Chris Evans', 'Mark Ruffalo'],
         genre: ['Action', 'Adventure', 'Drama'],
+        ratio: '10:1',
+        watched: '500 million',
+        rewatched: '100 million',
         image: movie3,
 },
     {
@@ -63,6 +72,9 @@ const movieData = [
         reviews: '9.5/10',
         cast: ['Bryan Cranston', 'Aaron Paul', 'Anna Gunn'],
         genre: ['Crime', 'Drama', 'Thriller'],
+        ratio: '9:2',
+        watched: '45 million',
+        rewatched: '12 million',
         image: movie4,
         },
     {
@@ -74,6 +86,9 @@ const movieData = [
         reviews: '8.5/10',
         cast: ['Jennifer Aniston', 'Courteney Cox', 'Lisa Kudrow'],
         genre: ['Comedy', 'Romance'],
+        ratio: '9:2',
+        watched: '30 million',
+        rewatched: '2 million',
         image: movie5,
     },
     {
@@ -85,6 +100,9 @@ const movieData = [
         reviews: '8.8/10',
         cast: ['Tom Hanks', 'Robin Wright', 'Gary Sinise'],
         genre: ['Drama', 'Romance'],
+        ratio: '8:3',
+        watched: '55 million',
+        rewatched: '5 million',
         image: movie6,
     },
     {
@@ -96,6 +114,9 @@ const movieData = [
         reviews: '7.8/10',
         cast: ['Leonardo DiCaprio', 'Kate Winslet', 'Billy Zane'],
         genre: ['Drama', 'Romance'],
+        ratio: '11:0',
+        watched: '150 million',
+        rewatched: '40 million',
         image: movie7,
     },
     {
@@ -107,6 +128,9 @@ const movieData = [
         reviews: '9.0/10',
         cast: ['Christian Bale', 'Heath Ledger', 'Aaron Eckhart'],
         genre: ['Action', 'Crime', 'Drama'],
+        ratio: '9:2',
+        watched: '60 million',
+        rewatched: '12 million',
         image: movie8,
     },
     {
@@ -118,6 +142,9 @@ const movieData = [
         reviews: '9.2/10',
         cast: ['Marlon Brando', 'Al Pacino', 'James Caan'],
         genre: ['Crime', 'Drama'],
+        ratio: '10:1',
+        watched: '60 million',
+        rewatched: '5.8 million',
         image: movie9,
     },
     {
@@ -129,6 +156,9 @@ const movieData = [
         reviews: '8.6/10',
         cast: ['Dan Castellaneta', 'Nancy Cartwright', 'Harry Shearer'],
         genre: ['Animation', 'Comedy'],
+        ratio: '8:2',
+        watched: '35 million',
+        rewatched: '10 million',
         image: movie10,
     },
     {
@@ -140,6 +170,9 @@ const movieData = [
         reviews: '8.1/10',
         cast: ['Seth MacFarlane', 'Alex Borstein', 'Seth Green'],
         genre: ['Animation', 'Comedy'],
+        ratio: '7:3',
+        watched: '20 million',
+        rewatched: '1.3 million',
         image: movie11,
     },
     {
@@ -151,6 +184,9 @@ const movieData = [
         reviews: '9.2/10',
         cast: ['Justin Roiland', 'Chris Parnell', 'Spencer Grammer'],
         genre: ['Animation', 'Adventure', 'Comedy'],
+        ratio: '9:2',
+        watched: '40 million',
+        rewatched: '8 million',
         image: movie12,
     },
     {
@@ -162,6 +198,9 @@ const movieData = [
         reviews: '9.0/10',
         cast: ['Al Pacino', 'Robert De Niro', 'Robert Duvall'],
         genre: ['Crime', 'Drama'],
+        ratio: '9:2',
+        watched: '40 million',
+        rewatched: '2.1 million',
         image: movie13,
     },
     {
@@ -173,6 +212,9 @@ const movieData = [
         reviews: '7.6/10',
         cast: ['Al Pacino', 'Diane Keaton', 'Andy Garcia'],
         genre: ['Crime', 'Drama'],
+        ratio: '9:2',
+        watched: '35 million',
+        rewatched: '2.2 million',
         image: movie14,
     },
     {
@@ -184,6 +226,9 @@ const movieData = [
         reviews: '8.4/10',
         cast: ['Robert Downey Jr.', 'Chris Hemsworth', 'Mark Ruffalo'],
         genre: ['Action', 'Adventure', 'Sci-Fi'],
+        ratio: '11:0',
+        watched: '500 million',
+        rewatched: '200 million',
         image: movie15,
     },
     {
@@ -195,6 +240,9 @@ const movieData = [
         reviews: '8.4/10',
         cast: ['Joaquin Phoenix', 'Robert De Niro', 'Zazie Beetz'],
         genre: ['Crime', 'Drama', 'Thriller'],
+        ratio: '9:2',
+        watched: '30 million',
+        rewatched: '2.5 million',
         image: movie16,
     },
     {
@@ -206,6 +254,9 @@ const movieData = [
         reviews: '6.9/10',
         cast: ['Mark Wahlberg', 'Mila Kunis', 'Seth MacFarlane'],
         genre: ['Comedy', 'Fantasy'],
+        ratio: '7:3',
+        watched: '18 million',
+        rewatched: '1.5 million',
         image: movie17,
     },
     {
@@ -217,6 +268,9 @@ const movieData = [
         reviews: '8.4/10',
         cast: ['Andy Samberg', 'Terry Crews', 'Stephanie Beatriz'],
         genre: ['Comedy', 'Crime'],
+        ratio: '9:2',
+        watched: '40 million',
+        rewatched: '8 million',
         image: movie18,
     },
     {
@@ -228,6 +282,9 @@ const movieData = [
         reviews: '8.9/10',
         cast: ['Steve Carell', 'Jenna Fischer', 'John Krasinski'],
         genre: ['Comedy'],
+        ratio: '10:1',
+        watched: '30 million',
+        rewatched: '5 million',
         image: movie19,
     },
     {
@@ -239,6 +296,9 @@ const movieData = [
         reviews: '8.8/10',
         cast: ['Shizuka Ishigami', 'Yûto Uemura', 'Kenichiro Matsuda'],
         genre: ['Animation', 'Action', 'Adventure'],
+        ratio: '8:2',
+        watched: '4 million',
+        rewatched: '1 million',
         image: movie20,
     },
     {
@@ -250,6 +310,9 @@ const movieData = [
         reviews: '8.4/10',
         cast: ['Shameik Moore', 'Jake Johnson', 'Hailee Steinfeld'],
         genre: ['Animation', 'Action', 'Adventure'],
+        ratio: '10:1',
+        watched: '300 million',
+        rewatched: '100 million',
         image: movie21,
     }
 ];

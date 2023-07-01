@@ -32,7 +32,14 @@ const MovieCard = ({ movie, onWatchlist, onAddToWatchlist, onRemoveFromWatchlist
                             <div className="details">
                                 <p>{movie.duration}</p>
                                 <p>{movie.rating}</p>
-                                <p>{movie.reviews} Stars</p>
+                                <div className="reviews-wrapper">
+                                    <p className="reviews">{movie.reviews} Stars</p>
+                                    <div className="hover-data">
+                                        <p><span className="label">Ratio:</span> {movie.ratio}</p>
+                                        <p><span className="label">Watched:</span> {movie.watched}</p>
+                                        <p><span className="label">Re-watched:</span> {movie.rewatched}</p>
+                                    </div>
+                                </div>
                             </div>
                             <div className="cast-description">
                                 <p>Cast: {movie.cast.join(', ')}</p>
