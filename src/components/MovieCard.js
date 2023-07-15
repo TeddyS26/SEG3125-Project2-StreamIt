@@ -23,12 +23,12 @@ const MovieCard = ({ movie, isInWatchlist, onAddToWatchlist, onRemoveFromWatchli
     };
 
     return (
-        <div className="movie-card" onClick={() => setShowModal(true)}>
+        <div className="movie-card" onClick={() => setShowModal(true)} role="button" tabIndex="0" aria-label={movie.title}>
             <img src={movie.image} alt={movie.title} />
             {showModal && (
-                <div className="movie-modal-background" onClick={handleCloseModal}>
+                <div className="movie-modal-background" onClick={handleCloseModal} role="dialog" aria-modal="true">
                     <div className="movie-modal">
-                        <button className="close-button" onClick={(event) => { event.stopPropagation(); handleCloseModal(event); }}>
+                        <button className="close-button" onClick={(event) => { event.stopPropagation(); handleCloseModal(event); }} aria-label={t('close')}>
                             X
                         </button>
                         <div className="modal-left">
@@ -50,7 +50,7 @@ const MovieCard = ({ movie, isInWatchlist, onAddToWatchlist, onRemoveFromWatchli
                             </div>
                         </div>
                         <div className="modal-right">
-                            <h2>{movie.title}</h2>
+                            <h2 id="modal-heading">{movie.title}</h2>
                             <p>{movie.description}</p>
                         </div>
                         <button className="play-button">{t('play')}</button>

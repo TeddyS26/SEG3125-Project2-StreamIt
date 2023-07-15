@@ -35,14 +35,14 @@ const Home = () => {
         <div className='home-page'>
             <div style={homeStyle}>
                 <div className="home-content">
-                    <div className="welcome-text">
+                    <div className="welcome-text" role="heading" aria-level="1">
                         <p>{t('welcome')}</p>
                     </div>
-                    <button onClick={handleButtonClick}>{t('learnmore')}</button>
+                    <button onClick={handleButtonClick} aria-label={t('learnmore')}>{t('learnmore')}</button>
                 </div>
             </div>
             <div id="about" style={aboutStyle}>
-                <div className="intro-text">
+                <div className="intro-text" role="heading" aria-level="2">
                     <p>{t('about')}</p>
                 </div>
                 <div className="row1">
@@ -51,12 +51,12 @@ const Home = () => {
                         <p>{t('watchon1')}</p>
                     </div>
                     <div className="column">
-                        <img src={tvImage} alt="TV" />
+                        <img src={tvImage} alt="Television icon" />
                     </div>
                 </div>
                 <div className="row2">
                     <div className="column">
-                        <img src={mobileImage} alt="Mobile" />
+                        <img src={mobileImage} alt="Mobile device icon" />
                     </div>
                     <div className="column">
                         <h3>{t('enjoy2')}</h3>
