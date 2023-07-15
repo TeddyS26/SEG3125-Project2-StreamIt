@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import './MovieCard.css';
+import { useTranslation } from 'react-i18next';
 
-const MovieCard = ({ movie, onWatchlist, onAddToWatchlist, onRemoveFromWatchlist }) => {
+const MovieCard = ({ movie, isInWatchlist, onAddToWatchlist, onRemoveFromWatchlist }) => {
+    const { t } = useTranslation();
+
     const [showModal, setShowModal] = useState(false);
 
     const handleCloseModal = (event) => {
@@ -10,8 +13,9 @@ const MovieCard = ({ movie, onWatchlist, onAddToWatchlist, onRemoveFromWatchlist
         }
     };
 
-    const handleWatchlistButton = () => {
-        if (onWatchlist) {
+    const handleWatchlistButton = (event) => {
+        event.stopPropagation();
+        if (isInWatchlist) {
             onRemoveFromWatchlist(movie);
         } else {
             onAddToWatchlist(movie);
@@ -33,25 +37,25 @@ const MovieCard = ({ movie, onWatchlist, onAddToWatchlist, onRemoveFromWatchlist
                                 <p>{movie.duration}</p>
                                 <p>{movie.rating}</p>
                                 <div className="reviews-wrapper">
-                                    <p className="reviews">{movie.reviews} Stars</p>
+                                    <p className="reviews">{movie.reviews} {t('stars')}</p>
                                     <div className="hover-data">
-                                        <p><span className="label">Ratio:</span> {movie.ratio}</p>
-                                        <p><span className="label">Watched:</span> {movie.watched}</p>
-                                        <p><span className="label">Re-watched:</span> {movie.rewatched}</p>
+                                        <p><span className="label">{t('ratio')}</span> {movie.ratio}</p>
+                                        <p><span className="label">{t('watched')}</span> {movie.watched}</p>
+                                        <p><span className="label">{t('rewatched')}</span> {movie.rewatched}</p>
                                     </div>
                                 </div>
                             </div>
                             <div className="cast-description">
-                                <p>Cast: {movie.cast.join(', ')}</p>
+                                <p>{t('cast')} {movie.cast.join(', ')}</p>
                             </div>
                         </div>
                         <div className="modal-right">
                             <h2>{movie.title}</h2>
                             <p>{movie.description}</p>
                         </div>
-                        <button className="play-button">Play</button>
+                        <button className="play-button">{t('play')}</button>
                         <button className="watchlist-button" onClick={handleWatchlistButton}>
-                            {onWatchlist ? 'Remove from Watchlist' : 'Add to Watchlist'}
+                            {isInWatchlist ? t('remove') : t('add')}
                         </button>
                     </div>
                 </div>

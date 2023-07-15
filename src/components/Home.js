@@ -3,8 +3,11 @@ import backgroundImage from './images/home_background.jpg';
 import tvImage from './images/tv.png';
 import mobileImage from './images/laptop.png';
 import './Home.css';
+import { useTranslation } from 'react-i18next';
 
 const Home = () => {
+    const { t } = useTranslation();
+
     const homeStyle = {
         backgroundImage: `linear-gradient(rgba(103, 58, 183, 0.6), rgba(178, 149, 229, 0.6)), url(${backgroundImage})`,
         height: '100vh',
@@ -33,19 +36,19 @@ const Home = () => {
             <div style={homeStyle}>
                 <div className="home-content">
                     <div className="welcome-text">
-                        <p>Welcome to StreamIt, the one-stop place to watch all your favourites movies and shows</p>
+                        <p>{t('welcome')}</p>
                     </div>
-                    <button onClick={handleButtonClick}>Learn More</button>
+                    <button onClick={handleButtonClick}>{t('learnmore')}</button>
                 </div>
             </div>
             <div id="about" style={aboutStyle}>
                 <div className="intro-text">
-                    <p>StreamIt is your one-stop platform for premium entertainment, offering a diverse range of movies and shows across various genres. We're committed to delivering high-quality streaming experiences, personalized to your tastes and preferences.</p>
+                    <p>{t('about')}</p>
                 </div>
                 <div className="row1">
                     <div className="column">
-                        <h3>Enjoy on your TV</h3>
-                        <p>Watch on Smart TVs, Playstation, Xbox, Chromecast, Apple TV, Blu-ray players, and more.</p>
+                        <h3>{t('enjoy1')}</h3>
+                        <p>{t('watchon1')}</p>
                     </div>
                     <div className="column">
                         <img src={tvImage} alt="TV" />
@@ -56,8 +59,8 @@ const Home = () => {
                         <img src={mobileImage} alt="Mobile" />
                     </div>
                     <div className="column">
-                        <h3>Watch Everywhere</h3>
-                        <p>Stream unlimited movies and TV shows on your phone, tablet, laptop, and TV.</p>
+                        <h3>{t('enjoy2')}</h3>
+                        <p>{t('watchon2')}</p>
                     </div>
                 </div>
             </div>

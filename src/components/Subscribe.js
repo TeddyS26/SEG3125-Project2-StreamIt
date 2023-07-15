@@ -6,10 +6,13 @@ import standard from './images/standard.jpg';
 import premium from './images/premium.jpeg';
 import family from './images/family.jpg';
 import def from './images/home_background.jpg';
+import { useTranslation } from 'react-i18next';
 
 const Subscribe = () => {
-    const [plan, setPlan] = useState('None');
-    const [price, setPrice] = useState('$--/month');
+    const { t } = useTranslation();
+
+    const [plan, setPlan] = useState(t('none'));
+    const [price, setPrice] = useState(t('noCharge'));
     const [image, setImage] = useState(def);
     const [showModal, setShowModal] = useState(false);
     const [formData, setFormData] = useState({
@@ -36,23 +39,23 @@ const Subscribe = () => {
         setPlan(event.target.value);
         switch(event.target.value) {
             case 'Basic':
-                setPrice('$7.99/month');
+                setPrice(t('basicPlanPrice'));
                 setImage(basic);
                 break;
             case 'Standard':
-                setPrice('$11.99/month');
+                setPrice(t('standardPlanPrice'));
                 setImage(standard);
                 break;
             case 'Premium':
-                setPrice('$15.99/month');
+                setPrice(t('premiumPlanPrice'));
                 setImage(premium);
                 break;
             case 'Family':
-                setPrice('$19.99/month');
+                setPrice(t('familyPlanPrice'));
                 setImage(family);
                 break;
             default:
-                setPrice('$--/month');
+                setPrice(t('noCharge'));
                 setImage(def);
         }
     };
@@ -68,53 +71,53 @@ const Subscribe = () => {
                 navigate('/main');
             }, 2000);
         } else {
-            alert('Please fill out all fields before subscribing.');
+            alert(t('alert3'));
         }
     };
 
     return (
         <div className="subscribe-page">
-            <h1 className="subscribe-title">Subscribe</h1>
+            <h1 className="subscribe-title">{t('subscribe')}</h1>
             <div className="subscribe-content">
                 <div className="subscribe-left">
                     <div className="plan-selection">
-                        <h2>Step 1: Select Plan</h2>
+                        <h2>{t('step1')}</h2>
                         <select value={plan} onChange={handlePlanChange}>
-                            <option value="None">--Please choose an option--</option>
-                            <option value="Basic">Basic Plan</option>
-                            <option value="Standard">Standard Plan</option>
-                            <option value="Premium">Premium Plan</option>
-                            <option value="Family">Family Plan</option>
+                            <option value="None">{t('option0')}</option>
+                            <option value="Basic">{t('basicPlan')}</option>
+                            <option value="Standard">{t('standardPlan')}</option>
+                            <option value="Premium">{t('premiumPlan')}</option>
+                            <option value="Family">{t('familyPlan')}</option>
                         </select>
                     </div>
                     <div className="payment-info">
-                        <h2>Step 2: Payment Information</h2>
+                        <h2>{t('step2')}</h2>
                         <form>
-                            <input type="text" name="cardNumber" placeholder="Card Number" onChange={handleInputChange} value={formData.cardNumber} />
-                            <input type="text" name="cardholderName" placeholder="Cardholder Name" onChange={handleInputChange} value={formData.cardholderName} />
-                            <input type="text" name="expiryDate" placeholder="Expiry Date" onChange={handleInputChange} value={formData.expiryDate} />
-                            <input type="text" name="cvc" placeholder="CVC" onChange={handleInputChange} value={formData.cvc} />
+                            <input type="text" name="cardNumber" placeholder={t('cardNumber')} onChange={handleInputChange} value={formData.cardNumber} />
+                            <input type="text" name="cardholderName" placeholder={t('holderName')} onChange={handleInputChange} value={formData.cardholderName} />
+                            <input type="text" name="expiryDate" placeholder={t('expiry')} onChange={handleInputChange} value={formData.expiryDate} />
+                            <input type="text" name="cvc" placeholder={t('cvc')} onChange={handleInputChange} value={formData.cvc} />
                         </form>
                     </div>
                     <div className="contact-info">
-                        <h2>Step 3: Contact Information</h2>
+                        <h2>{t('step3')}</h2>
                         <form>
-                            <input type="text" name="name" placeholder="Name" onChange={handleInputChange} value={formData.name} />
-                            <input type="email" name="email" placeholder="Email" onChange={handleInputChange} value={formData.email} />
-                            <input type="tel" name="phoneNumber" placeholder="Phone Number" onChange={handleInputChange} value={formData.phoneNumber} />
-                            <input type="text" name="address" placeholder="Address" onChange={handleInputChange} value={formData.address} />
+                            <input type="text" name="name" placeholder={t('name')} onChange={handleInputChange} value={formData.name} />
+                            <input type="email" name="email" placeholder={t('email')} onChange={handleInputChange} value={formData.email} />
+                            <input type="tel" name="phoneNumber" placeholder={t('number')} onChange={handleInputChange} value={formData.phoneNumber} />
+                            <input type="text" name="address" placeholder={t('address')}onChange={handleInputChange} value={formData.address} />
                         </form>
                     </div>
                     <div className="subscribe-button-container">
-                        <button onClick={handleSubmit}>Subscribe</button>
+                        <button onClick={handleSubmit}>{t('subscribe')}</button>
                     </div>
                 </div>
                 <div className="subscribe-right">
-                    <h2 className="subscription-info-title">Subscription Information</h2>
+                    <h2 className="subscription-info-title">{t('subscriptionInformation')}</h2>
                     <div className="subscription-info">
                         <img src={image} alt={plan} />
-                        <p>Plan: {plan}</p>
-                        <p>Price: {price}</p>
+                        <p>{t('planColon')} {plan}</p>
+                        <p>{t('priceColon')} {price}</p>
                     </div>
                 </div>
             </div>

@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Login.css';
+import { useTranslation } from 'react-i18next';
 
 function Login() {
+    const { t } = useTranslation();
+
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -10,10 +13,10 @@ function Login() {
 
     const handleLogin = () => {
         if (email === '' || password === '') {
-            alert('Please fill out the email and password fields.');
-            return;
+          alert(t('alert1'));
+          return;
         }
-
+    
         navigate('/main');
     };
 
@@ -21,25 +24,25 @@ function Login() {
         <div className="login-container">
             <div className="login-box">
                 <div className="login-header">
-                    <h2>Login</h2>
+                    <h2>{t('login')}</h2>
                 </div>
                 <div className="login-content">
                     <input
                         type="email"
-                        placeholder="Email"
+                        placeholder={t('email')}
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                     />
                     <input
                         type="password"
-                        placeholder="Password"
+                        placeholder={t('password')}
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                     />
-                    <button onClick={handleLogin}>Login</button>
+                    <button onClick={handleLogin}>{t('login')}</button>
                     <div className="signup-redirect">
-                        <span>Don't have an account? </span>
-                        <span className="signup-link" onClick={() => navigate('/signup')}>Create one</span>
+                        <span>{t('noaccount')}</span>
+                        <span className="signup-link" onClick={() => navigate('/signup')}>{t('createone')}</span>
                     </div>
                 </div>
             </div>

@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './SignUp.css';
+import { useTranslation } from 'react-i18next';
 
 function SignUp() {
+  const { t } = useTranslation();
+
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
@@ -29,7 +32,7 @@ function SignUp() {
     const isFieldEmpty = Object.values(formData).some(value => value === '');
 
     if (isFieldEmpty) {
-      alert('Please fill in all fields');
+      alert(t('alert2'));
       return;
     }
 
@@ -40,23 +43,23 @@ function SignUp() {
     <div className="signup-container">
       <div className="signup-box">
         <div className="signup-header">
-          <h2>Create Account</h2>
+          <h2>{t('createAccount')}</h2>
         </div>
         <div className="signup-content">
           <form onSubmit={handleSubmit}>
             <div className="section">
-              <h3>Personal Information</h3>
+              <h3>{t('personalInformation')}</h3>
               <div className="input-row">
                 <input
                   type="text"
-                  placeholder="Name"
+                  placeholder={t('name')}
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
                 />
                 <input
                   type="text"
-                  placeholder="Country"
+                  placeholder={t('country')}
                   name="country"
                   value={formData.country}
                   onChange={handleChange}
@@ -64,12 +67,12 @@ function SignUp() {
               </div>
             </div>
             <div className="section">
-              <h3>Contact Information</h3>
+              <h3>{t('contactInformation')}</h3>
               <div className="input-row">
                 <input
                   className="contact-input"
                   type="email"
-                  placeholder="Email"
+                  placeholder={t('email')}
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
@@ -77,7 +80,7 @@ function SignUp() {
                 <input
                   className="contact-input"
                   type="text"
-                  placeholder="Phone Number"
+                  placeholder={t('number')}
                   name="phone"
                   value={formData.phone}
                   onChange={handleChange}
@@ -87,7 +90,7 @@ function SignUp() {
                 <input
                   className="contact-input"
                   type="text"
-                  placeholder="Address"
+                  placeholder={t('address')}
                   name="address"
                   value={formData.address}
                   onChange={handleChange}
@@ -95,7 +98,7 @@ function SignUp() {
                 <input
                   className="contact-input"
                   type="text"
-                  placeholder="Postal Code"
+                  placeholder={t('code')}
                   name="postalCode"
                   value={formData.postalCode}
                   onChange={handleChange}
@@ -103,18 +106,18 @@ function SignUp() {
               </div>
             </div>
             <div className="section">
-              <h3>Password Confirmation</h3>
+              <h3>{t('passwordConfirmation')}</h3>
               <div className="input-row">
                 <input
                   type="password"
-                  placeholder="Password"
+                  placeholder={t('password')}
                   name="password"
                   value={formData.password}
                   onChange={handleChange}
                 />
                 <input
                   type="password"
-                  placeholder="Confirm Password"
+                  placeholder={t('confirm')}
                   name="confirmPassword"
                   value={formData.confirmPassword}
                   onChange={handleChange}
@@ -122,7 +125,7 @@ function SignUp() {
               </div>
             </div>
             <button type="submit">
-              Create Account
+              {t('createAccount')}
             </button>
           </form>
         </div>

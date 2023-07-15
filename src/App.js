@@ -12,15 +12,17 @@ import Main from './components/Main';
 function App() {
   return (
     <Router>
-      <Routes>
-        <Route path="/*" element={<WithNavbar component={Home} />} />
-        <Route path="/plans" element={<WithNavbar component={Plans} />} />
-        <Route path="/movies-shows" element={<WithNavbar component={MoviesShows} />} />
-        <Route path="/subscribe" element={<WithNavbar component={Subscribe} />} />
-        <Route path="/login" element={<WithNavbar component={Login} />} />
-        <Route path="/signup" element={<WithNavbar component={SignUp} />} />
-        <Route path="/main" element={<Main />} />
-      </Routes>
+      <div className="App">
+        <Routes>
+          <Route path="/*" element={<WithNavbar component={Home} />} />
+          <Route path="/plans" element={<WithNavbar component={Plans} />} />
+          <Route path="/movies-shows" element={<WithNavbar component={MoviesShows} />} />
+          <Route path="/subscribe" element={<WithNavbar component={Subscribe} />} />
+          <Route path="/login" element={<WithNavbar component={Login} />} />
+          <Route path="/signup" element={<WithNavbar component={SignUp} />} />
+          <Route path="/main" element={<Main />} />
+        </Routes>
+      </div>
     </Router>
   );
 }
@@ -29,7 +31,11 @@ const WithNavbar = ({ component: Component }) => {
   const location = useLocation();
   return (
     <>
-      {location.pathname !== '/main' && <Navbar />}
+      {location.pathname !== '/main' && (
+        <>
+          <Navbar />
+        </>
+      )}
       <Component />
     </>
   );
