@@ -4,39 +4,36 @@ import standard from './images/standard.jpg'
 import premium from './images/premium.jpeg'
 import family from './images/family.jpg'
 import styles from './Plans.module.css'
-import { useTranslation } from 'react-i18next';
 
 const Plans = () => {
-  const { t } = useTranslation();
-
   const plans = [
     {
       id: 1,
-      title: t('basicPlan'),
+      title: 'Basic Plan',
       image: basic,
-      description: t('basicPlanDescription'),
-      price: t('basicPlanPrice')
+      description: 'Perfect for the casual viewer. Enjoy access to all our movies and shows in standard definition (SD). Stream on one device at a time',
+      price: '$7.99/month'
     },
     {
       id: 2,
-      title: t('standardPlan'),
+      title: 'Standard Plan',
       image: standard,
-      description: t('standardPlanDescription'),
-      price: t('standardPlanPrice')
+      description: 'Great for the regular viewer. Enjoy all our content in high definition (HD). Stream on up to two devices simultaneously',
+      price: '$11.99/month'
     },
     {
       id: 3,
-      title: t('premiumPlan'),
+      title: 'Premium Plan',
       image: premium,
-      description: t('premiumPlanDescription'),
-      price: t('premiumPlanPrice')
+      description: 'Ideal for the entertainment enthusiast. Get the best viewing experience with ultra high definition (4K) streaming. Watch on up to four devices at the same time.',
+      price: '$15.99/month'
     },
     {
       id: 4,
-      title: t('familyPlan'),
+      title: 'Family Plan',
       image: family,
-      description: t('familyPlanDescription'),
-      price: t('familyPlanPrice')
+      description: 'The best choice for families. Enjoy all the benefits of the Premium Plan, plus parental controls and the ability to create multiple user profiles. Stream on up to five devices simultaneously.',
+      price: '$19.99/month'
     }
   ];
 

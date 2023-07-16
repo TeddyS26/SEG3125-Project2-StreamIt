@@ -2,25 +2,20 @@ import React, { useState, useEffect } from 'react';
 import './Main.css';
 import { useNavigate } from 'react-router-dom';
 import MovieCard from './MovieCard';
-import useMovieData from './movieData';
+import movieData from './movieData';
 import photo from './images/sm1.jpg';
 import titleImage from './images/title.png';
-import { useTranslation } from 'react-i18next';
-import canadianFlag from './images/flag1.png';
-import frenchFlag from './images/flag2.png';
 
 const Main = () => {
-    const { t, i18n } = useTranslation();
-    const movies = useMovieData();
-
     const [selectedGenres, setSelectedGenres] = useState([]);
     const [uniqueGenres, setUniqueGenres] = useState([]);
     const [watchlist, setWatchlist] = useState([]);
     const navigate = useNavigate();
 
     useEffect(() => {
+        // Extract genres from movie data and create a set of unique genres
         const genres = new Set();
-        movies.forEach((movie) => {
+        movieData.forEach((movie) => {
             movie.genre.forEach((genre) => genres.add(genre));
         });
         setUniqueGenres(Array.from(genres));
@@ -40,40 +35,27 @@ const Main = () => {
     };
 
     const addToWatchlist = (movie) => {
-        if (!isMovieInWatchlist(movie)) {
+        if (!watchlist.includes(movie)) {
             setWatchlist([...watchlist, movie]);
         }
     };
 
     const removeFromWatchlist = (movie) => {
-        setWatchlist(watchlist.filter(item => item.id !== movie.id));
+        setWatchlist(watchlist.filter((item) => item !== movie));
     };
 
     const isMovieInWatchlist = (movie) => {
-        return watchlist.some(watchlistMovie => watchlistMovie.id === movie.id);
+        return watchlist.includes(movie);
     };
 
     const getMoviesByGenre = (genre) => {
-        return movies.filter((movie) => movie.genre.includes(genre));
-    };
-
-    const changeLanguage = (lng) => {
-        i18n.changeLanguage(lng);
+        return movieData.filter((movie) => movie.genre.includes(genre));
     };
 
     return (
         <div className="main-page">
-            <div className="top-bar">
-                <div className="flag-container">
-                    <img
-                        src={i18n.language === 'en' ? canadianFlag : frenchFlag}
-                        alt="Flag"
-                        onClick={() => changeLanguage(i18n.language === 'en' ? 'fr' : 'en')}
-                    />
-                </div>
-                <div className="logout-button" onClick={handleLogout}>
-                    {t('logout')}
-                </div>
+            <div className="logout-button" onClick={handleLogout}>
+                Log Out
             </div>
             <div className="main-image">
                 <img src={photo} alt="Main" />
@@ -82,13 +64,13 @@ const Main = () => {
                         <img src={titleImage} alt="Movie Title" />
                     </div>
                     <div className="movie-details">
-                        <h2>{t('mostwatched')}</h2>
-                        <button className="play-button">{t('play')}</button>
+                        <h2>Most Watched</h2>
+                        <button className="play-button">Play</button>
                     </div>
                 </div>
             </div>
             <div className="filter-section">
-                <h2>{t('filters')}</h2>
+                <h2>Available Filters:</h2>
                 <div className="genres">
                     {uniqueGenres.map((genre) => (
                         <div key={genre}>
@@ -97,7 +79,7 @@ const Main = () => {
                         </div>
                     ))}
                     <div className="watchlist-filter">
-                        <label htmlFor="watchlist">{t('watchlist')}</label>
+                        <label htmlFor="watchlist">Watchlist</label>
                         <input type="checkbox" id="watchlist" value="watchlist" onChange={handleGenreChange} />
                     </div>
                 </div>
@@ -107,13 +89,13 @@ const Main = () => {
                     <>
                         {selectedGenres.includes('watchlist') && (
                             <div>
-                                <h2>{t('watchlist')}</h2>
+                                <h2>Watchlist</h2>
                                 <div className="movie-row">
                                     {watchlist.map((movie) => (
                                         <MovieCard
                                             key={movie.id}
                                             movie={movie}
-                                            isInWatchlist={isMovieInWatchlist(movie)}
+                                            onWatchlist={isMovieInWatchlist(movie)}
                                             onAddToWatchlist={addToWatchlist}
                                             onRemoveFromWatchlist={removeFromWatchlist}
                                         />
@@ -123,37 +105,37 @@ const Main = () => {
                         )}
                         {!selectedGenres.includes('watchlist') && (
                             <>
-                                <h2>{t('mostpopular')}</h2>
+                                <h2>Most Popular</h2>
                                 <div className="movie-row">
-                                    {movies.slice(0, 7).map((movie) => (
+                                    {movieData.slice(0, 7).map((movie) => (
                                         <MovieCard
                                             key={movie.id}
                                             movie={movie}
-                                            isInWatchlist={isMovieInWatchlist(movie)}
+                                            onWatchlist={isMovieInWatchlist(movie)}
                                             onAddToWatchlist={addToWatchlist}
                                             onRemoveFromWatchlist={removeFromWatchlist}
                                         />
                                     ))}
                                 </div>
-                                <h2>{t('highestrating')}</h2>
+                                <h2>Highest Ratings</h2>
                                 <div className="movie-row">
-                                    {movies.slice(7, 14).map((movie) => (
+                                    {movieData.slice(7, 14).map((movie) => (
                                         <MovieCard
                                             key={movie.id}
                                             movie={movie}
-                                            isInWatchlist={isMovieInWatchlist(movie)}
+                                            onWatchlist={isMovieInWatchlist(movie)}
                                             onAddToWatchlist={addToWatchlist}
                                             onRemoveFromWatchlist={removeFromWatchlist}
                                         />
                                     ))}
                                 </div>
-                                <h2>{t('mostwatched')}</h2>
+                                <h2>Most Watched</h2>
                                 <div className="movie-row">
-                                    {movies.slice(14, 21).map((movie) => (
+                                    {movieData.slice(14, 21).map((movie) => (
                                         <MovieCard
                                             key={movie.id}
                                             movie={movie}
-                                            isInWatchlist={isMovieInWatchlist(movie)}
+                                            onWatchlist={isMovieInWatchlist(movie)}
                                             onAddToWatchlist={addToWatchlist}
                                             onRemoveFromWatchlist={removeFromWatchlist}
                                         />
@@ -171,7 +153,7 @@ const Main = () => {
                                     <MovieCard
                                         key={movie.id}
                                         movie={movie}
-                                        isInWatchlist={isMovieInWatchlist(movie)}
+                                        onWatchlist={isMovieInWatchlist(movie)}
                                         onAddToWatchlist={addToWatchlist}
                                         onRemoveFromWatchlist={removeFromWatchlist}
                                     />

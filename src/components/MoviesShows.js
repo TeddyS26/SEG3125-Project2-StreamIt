@@ -1,10 +1,7 @@
 import React from 'react';
-import './MoviesShows.css';
-import { useTranslation } from 'react-i18next';
+import './MoviesShows.css'
 
 const MoviesShows = () => {
-  const { t } = useTranslation();
-
   const moviesShowsImages = [
     require('./images/a.jpeg'), require('./images/ae.jpg'), require('./images/bd.jpg'), require('./images/f.jpeg'), require('./images/got.jpeg'), 
     require('./images/t.jpeg'), require('./images/tdk.jpg'), require('./images/tg.jpg'), require('./images/ts.jpg'), require('./images/fg.jpg')
@@ -14,10 +11,10 @@ const MoviesShows = () => {
     <div className='movies-shows-page'>
       <div className="explanation">
           <div className="variety">
-            <p>{t('offers')}</p>
+            <p>StreamIt offers a wide variety of your favourite and the most popular movies and shows in the media</p>
           </div>
           <div className="favorites">
-            <p>{t('favorite')}</p>
+            <p>Your favourite movies and shows such as:</p>
           </div>
       </div>
       <div className="carousel1">
