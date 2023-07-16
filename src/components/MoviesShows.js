@@ -11,23 +11,23 @@ const MoviesShows = () => {
   ];  
 
   return (
-    <div className='movies-shows-page' role='region' aria-label='Movies and Shows page'>
-      <div className="explanation" role='contentinfo'>
+    <div className='movies-shows-page'>
+      <div className="explanation">
           <div className="variety">
-            <p id='offers-label'>{t('offers')}</p>
+            <p>{t('offers')}</p>
           </div>
           <div className="favorites">
-            <p id='favorites-label'>{t('favorite')}</p>
+            <p>{t('favorite')}</p>
           </div>
       </div>
-      <div className="carousel1" role='group' aria-labelledby='offers-label'>
+      <div className="carousel1">
         {moviesShowsImages.slice(0, 5).concat(moviesShowsImages.slice(0, 5)).map((image, index) => (
-          <img key={index} src={image} alt={`movie/show number ${index + 1}`} className="carousel-image" />
+          <img key={index} src={image} alt="movie/show" className="carousel-image" />
         ))}
       </div>
-      <div className="carousel2" role='group' aria-labelledby='favorites-label'>
+      <div className="carousel2">
         {moviesShowsImages.slice(5).concat(moviesShowsImages.slice(5)).map((image, index) => (
-          <img key={index} src={image} alt={`movie/show number ${index + 1}`} className="carousel-image" />
+          <img key={index} src={image} alt="movie/show" className="carousel-image" />
         ))}
       </div>
     </div>
